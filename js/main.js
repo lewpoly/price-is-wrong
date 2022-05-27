@@ -1,5 +1,6 @@
 document.querySelector('#clickMe').addEventListener('click', makeReq);
 document.querySelector('#random').addEventListener('click', whichItem)
+document.querySelector('#reset').addEventListener('click', reset)
 // let audio = document.querySelector('#laugh')
 
 async function makeReq() {
@@ -7,12 +8,23 @@ async function makeReq() {
   const res = await fetch(`/api?priceIsWrong=${guess}`);
   const data = await res.json();
 
+
   console.log(data);
   // if (data.verdict === 'The Price is Wrong!!!! Too low!' || data.verdict === "The Price is WRONG! too High!") {
   //    audio.play()
     
   // }
   document.querySelector('#rightOrWrong').textContent = data.verdict;
+  console.log(data.count)
+  //Auto loss after 3 attempts
+  if(data.count >= 3){
+    document.querySelector('#rightOrWrong').textContent = `You lose! No more chances!`
+    document.querySelector('#count').textContent = `Attempts: 3`
+  }else{
+    // updates counter on site
+    document.querySelector('#count').textContent = `Attempts: ${data.count}`
+  }
+  
 }
 // Picks a random item to then guess the price of, and displays the item picture and name.
 
@@ -31,14 +43,24 @@ async function whichItem(){
   const data = await res.json()
   console.log(data)
   // removes hidden class from attributes that have it
-  hidden.forEach(e => e.classList.toggle('hidden'))
+  hidden.forEach(e => e.classList.remove('hidden'))
   // hide random item button
   document.querySelector('#random').classList.add('hidden')
   // Changes title h2 to the name of the item
-  title.innerText += ` ${data._name}?`
+  title.innerText = `Guess the value of a ${data._name}?`
   //Displays chosen item that you are guessing the price on
   document.querySelector('image').src = `${data.img}`
 
 
 
+}
+
+async function reset(){
+  const res = await fetch('/api?reset=true')
+  const data = await res.json()
+  console.log(data)
+  document.querySelector('#rightOrWrong').textContent = ``
+  document.querySelector('#count').textContent = `Attempts: 0`
+  await whichItem()
+  
 }

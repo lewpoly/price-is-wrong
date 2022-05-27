@@ -27,6 +27,8 @@ let tesla = new Item('Tesla', 45000, '/img/t.jpeg')
 let kaid = new Item('Kitchen Aid', 450, '/img/kaid.jpeg')
 
 let items = [tesla, kaid]
+//initialize counter for win condition
+let counter = 0
 
  
 
@@ -59,6 +61,17 @@ const server = http.createServer((req, res) => {
       res.end(JSON.stringify(chooseItem()));
       
     }
+    else if (params['reset'] == 'true') {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      counter = 0
+      console.log(counter)
+      const objToJson = {
+        
+        count: counter,
+      };
+      res.end(JSON.stringify(objToJson));
+      
+    }
       // Compares given price to selected item price
     else if (params['priceIsWrong'] == '') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -66,24 +79,33 @@ const server = http.createServer((req, res) => {
       const objToJson = {
         
         verdict: 'Enter a value!!!',
+        count: counter
       };
       res.end(JSON.stringify(objToJson));
     }
     // if given price is less than actual price
     else if (Number(params['priceIsWrong']) < choice._price) {
       res.writeHead(200, { 'Content-Type': 'application/json' });
+      
+      //add 1 to the counter
+      counter++
       // make object with verdict
       const objToJson = {
         verdict: 'The Price is Wrong!!!! Too low!',
+        count: counter
       };
+      
       //return to frontend as json
       res.end(JSON.stringify(objToJson));
     } //priceIsWrong = leon
     // if given price is less than actual price
     else if (Number(params['priceIsWrong']) > choice._price) {
       res.writeHead(200, { 'Content-Type': 'application/json' });
+      //add 1 to the counter
+      counter++
       const objToJson = {
         verdict: 'The Price is WRONG! too High!',
+        count: counter
       };
       res.end(JSON.stringify(objToJson));
     } // If given price is equal to the actual price
@@ -91,6 +113,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       const objToJson = {
         verdict: 'The Price is PERFECT!',
+        count: counter
       };
       res.end(JSON.stringify(objToJson));
     }
@@ -108,7 +131,29 @@ const server = http.createServer((req, res) => {
       res.write(data);
       res.end();
     });
-  } else {
+  }
+  //  else if (page == '/img/2.jpg') {
+  //   fs.readFile('/img/2.jpg', function (err, data) {
+  //      res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+  //     res.write(data);
+  //     res.end();
+  //   });
+  // }
+  //  else if (page == '/img/kaid.jpeg') {
+  //   fs.readFile('/img/kaid.jpeg', function (err, data) {
+  //     res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+  //     res.write(data);
+  //     res.end();
+  //   });
+  // }
+  // else if (page == '/img/t.jpeg') {
+  //   fs.readFile('/img/t.jpeg', function (err, data) {
+  //     res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+  //     res.write(data);
+  //     res.end();
+  //   });
+  // }
+  else {
     figlet('404!!', function (err, data) {
       if (err) {
         console.log('Something went wrong...');
