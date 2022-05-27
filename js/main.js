@@ -15,6 +15,8 @@ async function makeReq() {
   document.querySelector('#rightOrWrong').textContent = data.verdict;
 }
 // Picks a random item to then guess the price of, and displays the item picture and name.
+
+
 async function whichItem(){
   const title = document.querySelector('#itemTitle')
   // Makes an array of elements with class hidden
