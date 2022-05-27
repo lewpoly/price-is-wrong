@@ -132,6 +132,14 @@ const server = http.createServer((req, res) => {
       res.end();
     });
   }
+
+  //  ***********
+
+  //  ATTEMPT AT MAKING THE PHOTOS WORK
+
+  // ********************
+
+
   //  else if (page == '/img/2.jpg') {
   //   fs.readFile('/img/2.jpg', function (err, data) {
   //      res.writeHead(200, { 'Content-Type': 'image/jpeg' });
@@ -153,6 +161,8 @@ const server = http.createServer((req, res) => {
   //     res.end();
   //   });
   // }
+
+  
   else {
     figlet('404!!', function (err, data) {
       if (err) {

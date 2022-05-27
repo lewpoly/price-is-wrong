@@ -56,11 +56,15 @@ async function whichItem(){
 }
 
 async function reset(){
+  //sends appropriate request
   const res = await fetch('/api?reset=true')
   const data = await res.json()
+
   console.log(data)
+  //Resets the text boxes for right or wrong and resets the count to 0
   document.querySelector('#rightOrWrong').textContent = ``
   document.querySelector('#count').textContent = `Attempts: 0`
+  // Chooses another item
   await whichItem()
   
 }
