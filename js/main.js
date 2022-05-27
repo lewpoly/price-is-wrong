@@ -13,3 +13,4 @@ async function makeReq() {
   }
   document.querySelector('#rightOrWrong').textContent = data.verdict;
 }
+// JORDAN CHANGE THIS PART OF CODE BABY
