@@ -34,7 +34,11 @@ async function whichItem(){
   hidden.forEach(e => e.classList.toggle('hidden'))
   // hide random item button
   document.querySelector('#random').classList.add('hidden')
+  // Changes title h2 to the name of the item
   title.innerText += ` ${data._name}?`
+  //Displays chosen item that you are guessing the price on
+  document.querySelector('image').src = `${data.img}`
+
 
 
 }

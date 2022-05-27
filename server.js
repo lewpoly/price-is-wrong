@@ -1,3 +1,6 @@
+//TODO: Allow server to recognize and load image files and 
+//audio files
+
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
@@ -83,7 +86,8 @@ const server = http.createServer((req, res) => {
         verdict: 'The Price is WRONG! too High!',
       };
       res.end(JSON.stringify(objToJson));
-    } else if (Number(params['priceIsWrong']) == choice._price) {
+    } // If given price is equal to the actual price
+    else if (Number(params['priceIsWrong']) == choice._price) {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       const objToJson = {
         verdict: 'The Price is PERFECT!',
@@ -122,8 +126,11 @@ let choice
 
 
 function chooseItem(){
+  //Chooses the item from list of items
   let item = (items[Math.floor(Math.random()*2)])
+
   console.log(item)
+  //sets global variable choice to the random item
   choice = item
   return choice
 }
