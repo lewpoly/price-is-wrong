@@ -1,0 +1,10 @@
+html,
+body {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url('https://cdn.glitch.global/efa41d69-4881-4ef2-a5f3-edc9df4feb69/2.jpg?v=1653611078334')
+    cover;
+}
