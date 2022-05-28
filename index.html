@@ -6,15 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Price is Wrong!</title>
 
-    <link rel="stylesheet" href="/normalize.css" />
-    <link rel="stylesheet" href="/style.css" />
+    <!-- <link rel="stylesheet" href="/normalize.css" /> -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <h1>Lets play a game!</h1>
-    <h2>Guess the value of a Tesla M3?</h2>
-    <input id="guess" type="number" name="" placeholder="Guess the price!" />
-    <button id="clickMe" type="button" name="button">Click Me</button>
+    <h2 id="itemTitle"class="hidden" ></h2>
+    <input class="hidden" id="guess" type="number" name="" placeholder="Guess the price!" />
+    <button id="random">Random item!</button>
+    <button class="hidden" id="clickMe" type="button" name="button">Click Me</button>
+    
     <h2 id="rightOrWrong"></h2>
-    <script type="text/javascript" src="main.js"></script>
+    <h3 id="count"></h3>
+    <img src="/img/t.jpeg" alt="">
+    <button id="reset" class="hidden">RESET</button>
+    <script type="text/javascript" src="js/main.js"></script>
+    <audio id="laugh" src="(clown-laughing)-cqp.mp3"></audio>
   </body>
 </html>
