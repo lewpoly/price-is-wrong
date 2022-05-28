@@ -182,7 +182,7 @@ let choice
 
 function chooseItem(){
   //Chooses the item from list of items
-  let item = (items[Math.floor(Math.random()*2)])
+  let item = (items[Math.floor(Math.random()*items.length)])
 
   console.log(item)
   //sets global variable choice to the random item
