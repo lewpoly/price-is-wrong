@@ -55,6 +55,7 @@ async function whichItem(){
 
 }
 
+
 async function reset(){
   //sends appropriate request
   const res = await fetch('/api?reset=true')
@@ -68,3 +69,6 @@ async function reset(){
   await whichItem()
   
 }
+
+// JORDAN CHANGE THIS PART OF CODE BABY
+
