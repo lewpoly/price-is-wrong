@@ -1,7 +1,7 @@
 document.querySelector('#clickMe').addEventListener('click', makeReq);
 document.querySelector('#random').addEventListener('click', whichItem)
 document.querySelector('#reset').addEventListener('click', reset)
-// let audio = document.querySelector('#laugh')
+let audio = document.querySelector('#laugh')
 
 async function makeReq() {
   const guess = document.querySelector('#guess').value;
@@ -10,10 +10,11 @@ async function makeReq() {
 
 
   console.log(data);
-  // if (data.verdict === 'The Price is Wrong!!!! Too low!' || data.verdict === "The Price is WRONG! too High!") {
-  //    audio.play()
+  if (data.verdict === 'The Price is Wrong!!!! Too low!' || data.verdict === "The Price is WRONG! too High!") {
+     audio.play();
+     audio.volume = 0.2;
     
-  // }
+  }
   document.querySelector('#rightOrWrong').textContent = data.verdict;
   console.log(data.count)
   //Auto loss after 3 attempts

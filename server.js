@@ -1,5 +1,11 @@
-//TODO: Allow server to recognize and load image files and 
-//audio files
+//TODO: 
+// clean up comments/code
+// more objects.prices
+// make pretty  css
+// add the gif of tiny shooter on the toy horse for wins
+// make 2 if else for the win condition, to signal if guess is way off 
+// (like over or under by more than 50% of the price)
+// make win condition within 10 or 20% of the price
 
 const http = require('http');
 const fs = require('fs');
@@ -157,6 +163,13 @@ const server = http.createServer((req, res) => {
   else if (page == '/img/t.jpeg') {
     fs.readFile('./img/t.jpeg', function (err, data) {
       res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+      res.write(data);
+      res.end();
+    });
+  }
+  else if (page == '/img/clown.mp3') {
+    fs.readFile('./img/clown.mp3', function (err, data) {
+      res.writeHead(200, { 'Content-Type': 'audio/mpeg' });
       res.write(data);
       res.end();
     });
