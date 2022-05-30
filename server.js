@@ -23,8 +23,8 @@ class Item{
     return this.img
   }
 }
-let tesla = new Item('Tesla', 45000, '/img/t.jpeg')
-let kaid = new Item('Kitchen Aid', 450, '/img/kaid.jpeg')
+let tesla = new Item('Tesla', 45000, './img/t.jpeg')
+let kaid = new Item('Kitchen Aid', 450, './img/kaid.jpeg')
 
 let items = [tesla, kaid]
 //initialize counter for win condition
@@ -140,27 +140,27 @@ const server = http.createServer((req, res) => {
   // ********************
 
 
-  //  else if (page == '/img/2.jpg') {
-  //   fs.readFile('/img/2.jpg', function (err, data) {
-  //      res.writeHead(200, { 'Content-Type': 'image/jpeg' });
-  //     res.write(data);
-  //     res.end();
-  //   });
-  // }
-  //  else if (page == '/img/kaid.jpeg') {
-  //   fs.readFile('/img/kaid.jpeg', function (err, data) {
-  //     res.writeHead(200, { 'Content-Type': 'image/jpeg' });
-  //     res.write(data);
-  //     res.end();
-  //   });
-  // }
-  // else if (page == '/img/t.jpeg') {
-  //   fs.readFile('/img/t.jpeg', function (err, data) {
-  //     res.writeHead(200, { 'Content-Type': 'image/jpeg' });
-  //     res.write(data);
-  //     res.end();
-  //   });
-  // }
+   else if (page == '/img/2.jpg') {
+    fs.readFile('./img/2.jpg', function (err, data) {
+       res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+      res.write(data);
+      res.end();
+    });
+  }
+   else if (page == '/img/kaid.jpeg') {
+    fs.readFile('./img/kaid.jpeg', function (err, data) {
+      res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+      res.write(data);
+      res.end();
+    });
+  }
+  else if (page == '/img/t.jpeg') {
+    fs.readFile('./img/t.jpeg', function (err, data) {
+      res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+      res.write(data);
+      res.end();
+    });
+  }
 
   
   else {

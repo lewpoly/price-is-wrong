@@ -49,7 +49,7 @@ async function whichItem(){
   // Changes title h2 to the name of the item
   title.innerText = `Guess the value of a ${data._name}?`
   //Displays chosen item that you are guessing the price on
-  document.querySelector('image').src = `${data.img}`
+  document.querySelector('img').src = `${data.img}`
 
 
 
