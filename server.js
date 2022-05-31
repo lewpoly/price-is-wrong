@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //TODO: 
 // clean up comments/code
 // more objects.prices
@@ -6,6 +7,13 @@
 // make 2 if else for the win condition, to signal if guess is way off 
 // (like over or under by more than 50% of the price)
 // make win condition within 10 or 20% of the price
+=======
+//TODO: Clean up comments/code
+//more objects/ prices
+//make pretty css
+// add the gif of the tiny shooter
+
+>>>>>>> 8b9e962 (this is an oopsie)
 
 const http = require('http');
 const fs = require('fs');
@@ -174,7 +182,10 @@ const server = http.createServer((req, res) => {
       res.end();
     });
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8b9e962 (this is an oopsie)
   
   else {
     figlet('404!!', function (err, data) {
