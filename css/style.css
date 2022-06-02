@@ -1,12 +1,180 @@
 html,
 body {
-  height: 100%;
   font-size: 62.5%;
 }
 
 body {
-  background: url('../img/2.jpg') no-repeat;
+  background: url('../img/tv-background.png') no-repeat;
+  background-size: 100vw 125%;
+  /* font-size: 3rem; */
+}
+
+#result{
+  border: solid, blue, 1px;
+  /* height: 10rem; */
+  width: 100%;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+#randomTitle{
   font-size: 3rem;
+  font-weight: 900;
+}
+
+#random {
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  letter-spacing: .1rem;
+  border: 0;
+  background: #ffd61f;
+  border-radius: 4px;
+  box-shadow: 0 10px 0 #755a00;
+  color: #5f4900;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  outline: 0;
+  padding: 15px 10px;
+  transition: all .1s linear;
+}
+
+#random:active {
+  background: #5f4900;
+  box-shadow: 0 2px 0 rgb(255, 238, 0);
+  transform: translateY(10px);
+  color: rgb(255, 238, 0)
+}
+
+
+
+
+
+
+
+
+
+
+
+#bobAndItem{
+  margin: 5rem 1rem 0 1rem;
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bobbyB{
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: left;
+  height: 50rem;
+  width: 30rem;
+}
+img{
+  border: none;
+  height: 50rem;
+  width: 50rem;
+}
+
+
+#itemContainer{
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  font-size: 2rem;
+}
+
+#itemTitle{
+  margin: 0;
+  background: #ffd61f;
+  width: 50rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+#guessContainer{
+  display: flex;
+  flex-flow: column;
+  justify-content: right;
+  align-items:flex-end;
+  margin-right: 10rem;
+}
+
+#guess{
+  width: 26rem;
+  height: 5rem;
+  font-size: 3rem;
+  color: black;
+}
+
+#clickMe {
+  width: 25rem;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  letter-spacing: .1rem;
+  border: 0;
+  background: #ffd61f;
+  border-radius: 4px;
+  box-shadow: 0 10px 0 #755a00;
+  color: #5f4900;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  outline: 0;
+  padding: 15px 10px;
+  transition: all .1s linear;
+}
+
+#clickMe:active {
+  background: #5f4900;
+  box-shadow: 0 2px 0 rgb(255, 238, 0);
+  transform: translateY(10px);
+  color: rgb(255, 238, 0)
+}
+
+
+
+
+
+
+
+#bottom{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#reset{
+  margin-left: 5rem;
+  height: 5rem
+  /* width: 10rem; */
 }
 
 .hidden{
