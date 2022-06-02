@@ -37,7 +37,6 @@ let items = [tesla, kaid]
 let counter = 0
 
  
-
 const server = http.createServer((req, res) => {
   const page = url.parse(req.url).pathname;
   const params = querystring.parse(url.parse(req.url).query);
@@ -45,7 +44,6 @@ const server = http.createServer((req, res) => {
   console.log(page);
   
   
-
   const reWrite = (file, contentType) => {
     fs.readFile(file, function (err, data) {
       res.writeHead(200, { 'Content-Type': contentType });
@@ -60,19 +58,13 @@ const server = http.createServer((req, res) => {
     // When clicking randomItem, returns a random item from list of items, and that is the item the game is played with.
      if (params['randomItem'] == 'true') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      //Chooses item
-      // let item = (items[Math.floor(Math.random()*2)])
-      // console.log(item)
-      // returns item as json object
       res.end(JSON.stringify(chooseItem()));
-      
     }
     else if (params['reset'] == 'true') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       counter = 0
       console.log(counter)
       const objToJson = {
-        
         count: counter,
       };
       res.end(JSON.stringify(objToJson));
@@ -83,7 +75,6 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       console.log(choice._price)
       const objToJson = {
-        
         verdict: 'Enter a value!!!',
         count: counter
       };
@@ -92,7 +83,6 @@ const server = http.createServer((req, res) => {
     // if given price is less than actual price
     else if (Number(params['priceIsWrong']) < choice._price) {
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      
       //add 1 to the counter
       counter++
       // make object with verdict
@@ -100,7 +90,6 @@ const server = http.createServer((req, res) => {
         verdict: 'The Price is Wrong!!!! Too low!',
         count: counter
       };
-      
       //return to frontend as json
       res.end(JSON.stringify(objToJson));
     } //priceIsWrong = leon
@@ -123,7 +112,6 @@ const server = http.createServer((req, res) => {
       };
       res.end(JSON.stringify(objToJson));
     }
-    
     //priceIsWrong if
   } //else if
   else if (page == '/css/style.css') {
@@ -139,64 +127,31 @@ const server = http.createServer((req, res) => {
     });
   }
 
-  //  ***********
-
-  //  ATTEMPT AT MAKING THE PHOTOS WORK
-
-  // ********************
-
-
-   else if (page == '/img/2.jpg') {
-    fs.readFile('./img/2.jpg', function (err, data) {
-       res.writeHead(200, { 'Content-Type': 'image/jpeg' });
-      res.write(data);
-      res.end();
-    });
+   else if (page == '/img/tv-background.png') {
+    reWrite('./img/tv-background.png', 'image/png');
   }
    else if (page == '/img/kaid.jpeg') {
-    fs.readFile('./img/kaid.jpeg', function (err, data) {
-      res.writeHead(200, { 'Content-Type': 'image/jpeg' });
-      res.write(data);
-      res.end();
-    });
+    reWrite('./img/kaid.jpeg', 'image/jpeg');
   }
   else if (page == '/img/t.jpeg') {
-    fs.readFile('./img/t.jpeg', function (err, data) {
-      res.writeHead(200, { 'Content-Type': 'image/jpeg' });
-      res.write(data);
-      res.end();
-    });
+    reWrite('./img/t.jpeg', 'image/jpeg');
   }
   else if (page == '/img/clown.mp3') {
-    fs.readFile('./img/clown.mp3', function (err, data) {
-      res.writeHead(200, { 'Content-Type': 'audio/mpeg' });
-      res.write(data);
-      res.end();
-    });
+    reWrite('./img/clown.mp3', 'image/jpeg');
+  }
+  else if (page == '/img/bobbyB.jpeg') {
+    reWrite('./img/bobbyB.jpeg', 'image/jpeg');
   }
 
-  
-  else {
-    figlet('404!!', function (err, data) {
-      if (err) {
-        console.log('Something went wrong...');
-        console.dir(err);
-        return;
-      }
-      res.write(data);
-      res.end();
-    });
-  }
 });
+
 
 // initialize choice variable that is visible throughout hte rest of the function
 let choice
 
-
 function chooseItem(){
   //Chooses the item from list of items
   let item = (items[Math.floor(Math.random()*items.length)])
-
   console.log(item)
   //sets global variable choice to the random item
   choice = item
