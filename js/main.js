@@ -11,8 +11,9 @@ async function makeReq() {
 
   console.log(data);
   if (data.verdict === 'The Price is Wrong!!!! Too low!' || data.verdict === "The Price is WRONG! too High!") {
-     audio.play();
-     audio.volume = 0.2;
+     audio.play()
+     audio.volume = 0.1;
+
     
   }
   document.querySelector('#rightOrWrong').textContent = data.verdict;

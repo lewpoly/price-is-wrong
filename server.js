@@ -138,9 +138,10 @@ const server = http.createServer((req, res) => {
   }
   else if (page == '/img/clown.mp3') {
     reWrite('./img/clown.mp3', 'image/jpeg');
-  }
+
   else if (page == '/img/bobbyB.jpeg') {
     reWrite('./img/bobbyB.jpeg', 'image/jpeg');
+
   }
 
 });
