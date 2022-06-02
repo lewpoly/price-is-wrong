@@ -176,6 +176,17 @@ const server = http.createServer((req, res) => {
   else if (page == '/img/bobbyB.jpeg') {
     reWrite('./img/bobbyB.jpeg', 'image/jpeg');
   }
+  else {
+    figlet('404!!', function (err, data) {
+      if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+      }
+      res.write(data);
+      res.end();
+    });
+  }
 
 });
 
