@@ -31,8 +31,18 @@ class Item{
 }
 let tesla = new Item('Tesla', 45000, './img/t.jpeg')
 let kaid = new Item('Kitchen Aid', 450, './img/kaid.jpeg')
+let bed = new Item('Queen Size Purple Mattress', 1250, './img/bed.jpg')
+let cam = new Item('Canon EOS 4000D DSLR Camera', 500, './img/cam.jpg')
+let gen = new Item('Honda Generator EU2200i', 1300, './img/gen.png')
+let hose = new Item('Garden Hose and Nozzle, 50 ft', 40, './img/hose.jpg')
+let ice = new Item('FRIGIDAIRE Ice Maker, 40lb Capacity', 180, './img/ice.jpg')
+let kite = new Item('Dragon Kite', 35, './img/kite.jpg')
+let toast = new Item('Black and Decker 4 Slice Toaster Oven', 80, './img/toast.png')
+let bowls = new Item('Set of 4 20oz Oven Safe Bowls', 23, './img/bowls.jpg')
 
-let items = [tesla, kaid]
+
+
+let items = [tesla, kaid, bed, cam, gen, hose, ice, kite, toast, bowls]
 //initialize counter for win condition
 let counter = 0
 
@@ -136,12 +146,35 @@ const server = http.createServer((req, res) => {
   else if (page == '/img/t.jpeg') {
     reWrite('./img/t.jpeg', 'image/jpeg');
   }
+  else if (page == '/img/kite.jpg') {
+    reWrite('./img/kite.jpg', 'image/jpeg');
+  }
+  else if (page == '/img/hose.jpg') {
+    reWrite('./img/hose.jpg', 'image/jpeg');
+  }
+  else if (page == '/img/ice.jpg') {
+    reWrite('./img/ice.jpg', 'image/jpeg');
+  }
+  else if (page == '/img/cam.jpg') {
+    reWrite('./img/cam.jpg', 'image/jpeg');
+  }
+  else if (page == '/img/bowls.jpg') {
+    reWrite('./img/bowls.jpg', 'image/jpeg');
+  }
+  else if (page == '/img/bed.jpg') {
+    reWrite('./img/bed.jpg', 'image/jpeg');
+  }
+  else if (page == '/img/gen.png') {
+    reWrite('./img/gen.png', 'image/png');
+  }
+  else if (page == '/img/toast.png') {
+    reWrite('./img/toast.png', 'image/png');
+  }
   else if (page == '/img/clown.mp3') {
     reWrite('./img/clown.mp3', 'image/jpeg');
-
+  }
   else if (page == '/img/bobbyB.jpeg') {
     reWrite('./img/bobbyB.jpeg', 'image/jpeg');
-
   }
 
 });
